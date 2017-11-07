@@ -16,6 +16,7 @@ namespace webapi2Tarea.Repository
         private UserRepository()
         {
             users = new List<User>();
+            mock();
         }
 
         private void mock()
