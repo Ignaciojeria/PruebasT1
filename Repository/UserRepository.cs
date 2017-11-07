@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using webapi2Tarea.Entity;
+using webapi2Tarea.Models;
 
 namespace webapi2Tarea.Repository
 {
@@ -21,8 +22,8 @@ namespace webapi2Tarea.Repository
 
         private void mock()
         {
-            users.Add(new User() { Id = 1, Email = "Ignaciovl.j@gmail.com", Password = "user", Name = "Ignacio" });
-            users.Add(new User() { Id = 2, Email = "admin@domain.com", Password = "admin", Name = "Administrador" });
+            users.Add(new User() { Id = "1", Email = "Ignaciovl.j@gmail.com", Password = "user", Name = "Ignacio" });
+            users.Add(new User() { Id = "2", Email = "admin@domain.com", Password = "admin", Name = "Administrador" });
         }
 
         public static UserRepository getInstance()
@@ -34,5 +35,11 @@ namespace webapi2Tarea.Repository
         {
             return users;
         }
+
+        public User findByUserModel(UserModel userModel)
+        {
+            return users.First(i => i.Email == userModel.Email && i.Password == userModel.Password);
+        }
+
     }
 }

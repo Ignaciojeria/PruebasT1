@@ -12,6 +12,7 @@ namespace webapi2Tarea.Controllers
     public class UserController : ApiController
     {
         [HttpGet]
+        [Authorize]
         public List<User> Get()
         {
             return new UserService().findAll();
