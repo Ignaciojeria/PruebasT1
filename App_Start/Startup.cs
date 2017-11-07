@@ -31,6 +31,7 @@ namespace webapi2Tarea.App_Start
         public void ConfigureAuth(IAppBuilder app)
         {
             app.UseOAuthBearerTokens(OAuthOptions);
+            
         }
     }
 }
