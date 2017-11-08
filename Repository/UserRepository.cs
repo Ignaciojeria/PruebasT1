@@ -26,6 +26,7 @@ namespace webapi2Tarea.Repository
             users.Add(new User() { Id = "2", Email = "admin@domain.com", Password = "admin", Name = "Administrador" });
         }
 
+
         public static UserRepository getInstance()
         {
             return userRepository;
