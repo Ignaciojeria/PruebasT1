@@ -1,13 +1,26 @@
 ﻿using System.Linq;
 using System.Web.Http;
+using Unity;
+using Unity.Lifetime;
+using webapi2Tarea.IService;
+using webapi2Tarea.ServiceImpl;
 
 namespace webapi2Tarea.App_Start
 {
     public class WebApiConfig
     {
+
         //midleware de configuraciòn
         public static void Configure(HttpConfiguration config)
         {
+            var container = new UnityContainer();
+            //Acà vamos a inyectar nuestras dependencias
+            container.RegisterType<IUserService, UserService>(new HierarchicalLifetimeManager());
+            //dependencia b
+            //dependencia c
+
+            //-----------acà ingresaremos a nuestro contenedor las dependencias inyectadas.!
+            config.DependencyResolver = new UnityResolver(container);
 
             config.EnableCors();
 

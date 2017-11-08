@@ -14,9 +14,9 @@ namespace webapi2Tarea.Controllers
     public class SleepController : ApiController
     {
         [HttpGet]
+        [Route("api/sleep")]
         public string Get()
         {
-            Console.WriteLine("Has recibido una solicitud de un x cliente");
             Thread.Sleep(10000);
             return "Me he demorado 10 segundos en procesar la solicitud! Delegar a un procedimiento Sincrono";
         }
@@ -25,7 +25,6 @@ namespace webapi2Tarea.Controllers
         [Route("api/resource")]
         public string Resource()
         {
-
             return "Solicitud de carga inmediata! Delegar a procedimientos asincronos ;)";
         }
     }

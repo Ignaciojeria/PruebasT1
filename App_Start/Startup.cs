@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Unity;
 using webapi2Tarea.Provider;
 
 [assembly: OwinStartup(typeof(webapi2Tarea.App_Start.Startup))]
@@ -19,6 +20,7 @@ namespace webapi2Tarea.App_Start
         {
             OAuthOptions = new OAuthAuthorizationServerOptions
             {
+               
                 //Ruta para solicitar el token. se mandan las credenciales por post.
                 TokenEndpointPath = new PathString("/auth"),
                 Provider = new OAuthAppProvider(),
