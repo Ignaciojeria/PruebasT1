@@ -79,3 +79,7 @@ C:\Users\ignacio.jeria\Documents\Visual Studio 2015\Projects\webapi2Tarea\webapi
 C:\Users\ignacio.jeria\Documents\Visual Studio 2015\Projects\webapi2Tarea\webapi2Tarea\bin\System.Web.Http.Cors.xml
 C:\Users\ignacio.jeria\Documents\Visual Studio 2015\Projects\webapi2Tarea\webapi2Tarea\bin\System.Web.Http.Tracing.dll
 C:\Users\ignacio.jeria\Documents\Visual Studio 2015\Projects\webapi2Tarea\webapi2Tarea\bin\System.Web.Http.Tracing.xml
+C:\Users\ignacio.jeria\Documents\Visual Studio 2015\Projects\webapi2Tarea\webapi2Tarea\bin\EntityFramework.dll
+C:\Users\ignacio.jeria\Documents\Visual Studio 2015\Projects\webapi2Tarea\webapi2Tarea\bin\EntityFramework.SqlServer.dll
+C:\Users\ignacio.jeria\Documents\Visual Studio 2015\Projects\webapi2Tarea\webapi2Tarea\bin\EntityFramework.xml
+C:\Users\ignacio.jeria\Documents\Visual Studio 2015\Projects\webapi2Tarea\webapi2Tarea\bin\EntityFramework.SqlServer.xml
