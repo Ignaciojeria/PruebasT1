@@ -24,13 +24,15 @@ namespace webapi2Tarea.Controllers
         [HttpGet]
         public IHttpActionResult Get()
         {
-            return null;
+            return Ok(_service.findAll());
         }
 
         [HttpPost]
         public IHttpActionResult Post([FromBody] UserModel userModel)
         {
-           //HashBytes('MD5', @PASSW)
+           
+
+            //HashBytes('MD5', @PASSW)
             string HashBytes = MD5Hash(userModel.contrasena);
             //byte[] asciiBytes = Encoding.ASCII.GetBytes(HashBytes);
 
@@ -38,16 +40,23 @@ namespace webapi2Tarea.Controllers
              //string convert= Convert.ToBase64String(asciiBytes);
 
             // cast(@PASSW + LOWER(CONVERT(NVARCHAR(45), HashBytes('MD5', @PASSW), 2)
-            byte[] asciiBytesB = Encoding.ASCII.GetBytes(userModel.contrasena+HashBytes);
+          //  byte[] asciiBytesB = Encoding.ASCII.GetBytes(userModel.contrasena+HashBytes);
+            string sha1 = GetSHA1HashData(userModel.contrasena + HashBytes);
 
             //HashBytes('SHA1',cast(@PASSW+LOWER(CONVERT(NVARCHAR(45),HashBytes('MD5',@PASSW),2)
             HashAlgorithm algorithm = SHA1.Create();
-            byte[] sha1= algorithm.ComputeHash(asciiBytesB);
+            //byte[] sha1= algorithm.ComputeHash(asciiBytesB);
 
             //cast(HashBytes('SHA1',cast(@PASSW+LOWER(CONVERT(NVARCHAR(45),HashBytes('MD5',@PASSW),2))
-            string finalCast = Encoding.ASCII.GetString(sha1);
+            // string finalCast = Encoding.ASCII.GetString(sha1);
 
-            return Ok(finalCast);
+            //
+            if (sha1.Equals(_service.findUserByUserModel(userModel).contrasena)) return Ok(true);
+            //utf8 Bytes to string 
+            // userModel.contrasena = finalCast;
+            //  if (finalCast.Equals( _service.findUserByUserModel(userModel).contrasena)) return Ok(true);
+
+            return Ok(sha1);
 
         }
 
@@ -65,6 +74,26 @@ namespace webapi2Tarea.Controllers
         }
 
 
+        private string GetSHA1HashData(string data)
+        {
+            //create new instance of md5
+            SHA1 sha1 = SHA1.Create();
+
+            //convert the input text to array of bytes
+            byte[] hashData = sha1.ComputeHash(Encoding.Default.GetBytes(data));
+
+            //create new instance of StringBuilder to save hashed data
+            StringBuilder returnValue = new StringBuilder();
+
+            //loop for each byte and add it to StringBuilder
+            for (int i = 0; i < hashData.Length; i++)
+            {
+                returnValue.Append(hashData[i].ToString());
+            }
+
+            // return hexadecimal string
+            return returnValue.ToString();
+        }
 
 
         public static String ToBinary(Byte[] data)
