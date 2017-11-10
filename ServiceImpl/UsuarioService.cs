@@ -49,7 +49,7 @@ namespace webapi2Tarea.ServiceImpl
                 // var hashBytes =new SHA1CryptoServiceProvider().ComputeHash(new MD5CryptoServiceProvider().ComputeHash(bytes));
                 Usuario usuario = db.Usuario.First(i => i.usuario == userModel.usuario);
              
-                usuario.contrasena = GetSHA1HashData(userModel.contrasena + (MD5Hash(userModel.contrasena)).ToLower());
+              //  usuario.contrasena = GetSHA1HashData(userModel.contrasena + (MD5Hash(userModel.contrasena)).ToLower());
 
                 // usuario.contrasena = System.Text.Encoding.Unicode.GetBytes(usuario.contrasena);
                 return usuario;
@@ -58,6 +58,9 @@ namespace webapi2Tarea.ServiceImpl
                 return null;
             }
         }
+
+   
+
 
         public string RemoveUserByRut(int rut)
         {
