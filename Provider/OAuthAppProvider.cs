@@ -23,16 +23,17 @@ namespace webapi2Tarea.Provider
         {
             return Task.Factory.StartNew(() =>
             {
-                var email = context.UserName;
+                var postUser = context.UserName;
                 var password = context.Password;
-                var userService = new UserService();
-                User user = userService.findByUserModel(new UserModel(){Email=email,Password=password});
+                var userService = new UsuarioService();
+
+                Usuario user = userService.findUserByUserModel(new UserModel(){usuario=postUser,contrasena=password});
                 if (user != null)
                 {
                     var claims = new List<Claim>()
                     {
-                        new Claim(ClaimTypes.Name, user.Name),
-                        new Claim("UserID", user.Id)
+                        new Claim(ClaimTypes.Name, user.correo),
+                        new Claim("UserID", user.Alias)
                     };
 
                     ClaimsIdentity oAutIdentity = new ClaimsIdentity(claims, Startup.OAuthOptions.AuthenticationType);

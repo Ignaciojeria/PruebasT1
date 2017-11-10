@@ -15,8 +15,9 @@ namespace webapi2Tarea.App_Start
         {
             var container = new UnityContainer();
             //Acà vamos a inyectar nuestras dependencias
-            container.RegisterType<IUserService, UserService>(new HierarchicalLifetimeManager());
-            container.RegisterType<IAcreditaCorreosService, AcreditaCorreoService>(new HierarchicalLifetimeManager());
+            //container.RegisterType<IUsuarioService, UsuarioService>(new HierarchicalLifetimeManager());
+            container.RegisterType<IAcreditaNacionalidadService, AcreditaNacionalidadService>(new HierarchicalLifetimeManager());
+            container.RegisterType<IUsuarioService, UsuarioService>(new HierarchicalLifetimeManager());
             //dependencia b
             //dependencia c
 

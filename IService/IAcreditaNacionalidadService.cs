@@ -7,8 +7,8 @@ using webapi2Tarea.Entity;
 
 namespace webapi2Tarea.IService
 {
-    public interface IAcreditaCorreosService
+    public interface IAcreditaNacionalidadService
     {
-        IEnumerable<Acredita_Correos> findAll();
+        IEnumerable<Acredita_Nacionalidad> findAll();
     }
 }

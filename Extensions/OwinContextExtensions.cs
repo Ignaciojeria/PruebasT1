@@ -8,6 +8,7 @@ namespace webapi2Tarea.Extensions
 {
     public static class OwinContextExtensions
     {
+        //El post va Asì -> grant_type=password&username=admin@domain.com&password=admin
         public static string GetUserId(this IOwinContext ctx)
         {
             var result = "-1";
